@@ -551,7 +551,7 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 	}
 
 	if !local && tx.GasPrice().Cmp(big.NewInt(500)) > 0 {
-		log.Trace("DISCARDING OUTSIDE TX:", tx.GasPrice(), big.NewInt(500))
+		log.Info("DISCARDING OUTSIDE TX:", tx.GasPrice(), big.NewInt(500))
 		return ErrUnderpriced
 	}
 
