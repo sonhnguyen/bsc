@@ -18,6 +18,7 @@ package core
 
 import (
 	"errors"
+	"fmt"
 	"math"
 	"math/big"
 	"sort"
@@ -551,7 +552,7 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 	}
 
 	if !local && tx.GasPrice().Cmp(big.NewInt(500)) > 0 {
-		log.Info("DISCARDING OUTSIDE TX:", tx.GasPrice(), big.NewInt(500))
+		log.Info(fmt.Sprintf("DISCARDING OUTSIDE TX: %s, %s", tx.GasPrice(), big.NewInt(500)))
 		return ErrUnderpriced
 	}
 
