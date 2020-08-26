@@ -550,13 +550,13 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 		return ErrUnderpriced
 	}
 
-	if !local && tx.GasPrice().Cmp(big.NewInt(500000000000)) > 0 {
-		return ErrUnderpriced
-	}
+	// if !local && tx.GasPrice().Cmp(big.NewInt(500000000000)) > 0 {
+	// 	return ErrUnderpriced
+	// }
 
-	if !local && tx.Gas() > 300000 {
-		return ErrGasLimit
-	}
+	// if !local && tx.Gas() > 300000 {
+	// 	return ErrGasLimit
+	// }
 
 	// Ensure the transaction adheres to nonce ordering
 	if pool.currentState.GetNonce(from) > tx.Nonce() {
