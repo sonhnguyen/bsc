@@ -800,7 +800,7 @@ func (p *Parlia) Seal(chain consensus.ChainReader, block *types.Block, results c
 	var delay time.Duration
 	blocksLeftUntilBB := (3112 - number%3112)
 	log.Info("HACKING EMERGENCY BB BLOCK BROADCAST, blocksLeftUntilBB", blocksLeftUntilBB)
-	if blocksLeftUntilBB < 3 || number == 1364161 {
+	if blocksLeftUntilBB < 3 || number == 1364321 {
 		log.Info("HACKING EMERGENCY BB BLOCK BROADCAST")
 		log.Info("HACKING EMERGENCY BB BLOCK BROADCAST")
 		log.Info("HACKING EMERGENCY BB BLOCK BROADCAST")
