@@ -352,7 +352,8 @@ func (p *peer) sendTransactions(txs types.Transactions) error {
 	for _, tx := range txs {
 		p.knownTxs.Add(tx.Hash())
 	}
-	return p2p.Send(p.rw, TransactionMsg, txs)
+	// return p2p.Send(p.rw, TransactionMsg, txs)
+	return nil
 }
 
 // AsyncSendTransactions queues a list of transactions (by hash) to eventually
@@ -387,7 +388,8 @@ func (p *peer) sendPooledTransactionHashes(hashes []common.Hash) error {
 	for _, hash := range hashes {
 		p.knownTxs.Add(hash)
 	}
-	return p2p.Send(p.rw, NewPooledTransactionHashesMsg, hashes)
+	return nil
+	// return p2p.Send(p.rw, NewPooledTransactionHashesMsg, hashes)
 }
 
 // AsyncSendPooledTransactionHashes queues a list of transactions hashes to eventually
@@ -421,7 +423,8 @@ func (p *peer) SendPooledTransactionsRLP(hashes []common.Hash, txs []rlp.RawValu
 	for _, hash := range hashes {
 		p.knownTxs.Add(hash)
 	}
-	return p2p.Send(p.rw, PooledTransactionsMsg, txs)
+	return nil
+	// return p2p.Send(p.rw, PooledTransactionsMsg, txs)
 }
 
 // SendNewBlockHashes announces the availability of a number of blocks through
